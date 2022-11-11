@@ -2,23 +2,79 @@
 // import robotjs library 😊😊😊😊😊😊😊😊😊✅✅✅✅✅✅✅✅✅✅✅
 var robot = require('robotjs');
 
-Hello = "Hello"
-World = "World"
-print(Hello, World)
 // (っ◔◡◔)っ ♥ He turned into a Pickle ♥
+
 function main(){
     console.log("Starting...");
     sleep(4000);
-
-var first_tree_x
    // 
 //NARRATOR:
 //(Black screen with text; The sound of buzzing bees can be heard)
 //According to all known laws of aviation,
 //there is no way a bee should be able to fly.
+//
+// WELCOME TO THE MAINFRAME
+//
+var first_tree_x
+// START EDGEVILLE BANK
+// ROBOT MOVES MOUSE TO COMPASS
+// ROBOT CLICKS COMPASS
+// ROBOT ROBOT TAKES SCREEN SHOT
+
+// ROBOT IDENTIFIES IF INVENTORY FULL
+
+// IF INVENTORY FULL, GO TO BANK BEEP BOOP BOP
+
+// 💩💩💩💩 ROBOT MOVES TO MARKER 1 💩💩💩💩
+// ROBOT MOVES MOUSE TO MARKER 1
+// ROBOT CLICKS INSIDE MARKER 1
+// MS DELAY
+// ROBOT TAKES SCREEN SHOT TO CONFIRM IF ON MARKER 1
+
+// 💩💩💩💩 ROBOT MOVES TO MARKER 2 💩💩💩💩
+// ROBOT MOVES MOUSE TO MARKER 2
+// ROBOT LEFT CLICKS INSIDE MARKER 2
+// MS DELAY
+// ROBOT TAKES SCREEN SHOT TO CONFIRM IF ON MARKER 2
+
+// 💩💩💩💩 ROBOT MOVES TO MARKER 3 CUZ WHY NOT 💩💩💩💩
+// ROBOT MOVES MOUSE TO MARKER 3
+// ROBOT LEFT CLICKS INSIDE MARKER 3
+// MS DELAY
+// ROBOT TAKES SCREEN SHOT TO CONFIRM IF ON MARKER 3
+
+// 💰💰💰💰 ROBOT MOVES TO BANK 💰💰💰💰
+// ROBOT FINDS BANKER
+// ROBOT CHOOSES WHICH BANKER TO BANK ON (MAYBE RNG ROLL 1 OF 2)
+// ROBOT MOVES MOUSE TO BANKER OF CHOICE BUSSY BAKA
+// ROBOT RIGHT CLICKS ON BANKER
+// MS DELAY VARYING OFC
+// ROBOT MOVES MOUSE TO "BANK ITEMS" TEXT
+// ROBOT LEFT CLICKS ON "BANK ITEMS" TEXT
+// ROBOT TAKES SCREEN SHOT
+
+// 💰💰💰💰 ROBOT BANKS ITEMS 💰💰💰💰
+// ROBOT MOVES MOUSE TO BOTTOM RIGHT INVENTORY ITEM CUZ IT'S EASY
+// ROBOT RIGHT CLICKS BOTTOM RIGHT INVENTORY ITEM
+// ROBOT MOVES MOUSE TO "DEPOSIT ALL"
+// ROBOT LEFT CLICKS
+// MS DELAY
+// ROBOT MOVES MOUSE TO CLOSE BANK TAB X
+// ROBOT LEFT CLICKS CLOSE BANK TAB
+// MS DELAY
+
+// 🌲🌲🌲🌲 IF INVENTORY NOT FULL = GO FIND TREE 🌲🌲🌲🌲
+// ROBOT MOVES MOUSE TO COMPASS
+// ROBOT MOUSE LEFT CLICKS COMPASS
+// ROBOT TAKES SCREEN SHOT
+// ROBOT FINDS MARKER 1
+// ROBOT LEFT CLICKS MARKER 1
+// MS DELAY
+
+
 
 function testScreenCapture() {
-    //  taking a screen shot✅✅✅✅✅✅
+    //  taking a screen shot
     var img = robot.screencapture(0,0, 1920, 1080);
     // hell yeah
     var pixel_color = img.colorAt(30, 18)
