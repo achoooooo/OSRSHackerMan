@@ -15,19 +15,98 @@ var robot = require('robotjs');
 // ROBOT MOVES MOUSE TO COMPASS
 
 function click_compass(){
-    mouse.moveTo(x, y, delay);
-    sleep(4000);
-    mouse.click('left')
-    var img = robot.screencapture(0,0, 1920, 1080);
+    const COMPASS_LEFT_X = 1625;
+    const COMPASS_TOP_Y = 42;
+    const COMPASS_RIGHT_X = 1666;
+    const COMPASS_BOT_Y = 73;
+
+    console.log("Clicking compass")
+
+    const compassClickX = getRandomInt(COMPASS_LEFT_X, COMPASS_RIGHT_X);
+    const compassClickY = getRandomInt(COMPASS_TOP_Y, COMPASS_BOT_Y);
+
+    console.log("Clicking: ", compassClickX, compassClickY);
+
+     robot.moveMouseSmooth(compassClickX, compassClickY);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(500);
+}
+function mousewheelzoomMove(){
+    const MOUSEWHEEL_LEFT_X = 1455;
+    const MOUSEWHEEL_TOP_Y = 50;
+    const MOUSEWHEEL_RIGHT_X = 1555;
+    const MOUSEWHEEL_BOT_Y = 100;
+
+    console.log("Generating random Mouse Zoom Out Location");
+
+    const MouseWheelZoomX = getRandomInt(MOUSEWHEEL_LEFT_X, MOUSEWHEEL_RIGHT_X);
+    const MouseWheelZoomY = getRandomInt(MOUSEWHEEL_TOP_Y, MOUSEWHEEL_BOT_Y);
+
+    console.log("Moving mouse to Zooming Out Zone", MouseWheelZoomX, MouseWheelZoomY);
+
+      robot.moveMouseSmooth(MouseWheelZoomX, MouseWheelZoomY);
+    sleep(500);
+    // UHHHH NOT WORKING HELP INDIA 
+    // robot.scrollMouse(0, 50);
+    // sleep(500);
+    // robot.scrollMouse(0, -50);
+    // sleep(500);
+    // robot.scrollMouse(50, 0);
+    // sleep(500);
+    // robot.scrollMouse(-50, 0);
+}
+function YewTree1(){
+    const YEWTREE_ONE_LEFT_X = 390;
+    const YEWTREE_ONE_TOP_Y = 949;
+    const YEWTREE_ONE_RIGHT_X = 642;
+    const YEWTREE_ONE_BOT_Y = 997;
+
+    console.log("Choosing where to click Yew 1");
+
+    const YewTree1X = getRandomInt(YEWTREE_ONE_LEFT_X, YEWTREE_ONE_RIGHT_X);
+    const YewTree1Y = getRandomInt(YEWTREE_ONE_TOP_Y, YEWTREE_ONE_BOT_Y);
+
+    console.log("Moving to Yew Tree 1", YewTree1X, YewTree1Y);
+
+        robot.moveMouseSmooth(YewTree1X, YewTree1Y);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(5000);
 
 }
+function YewTree2(){
+    const YEWTREE_TWO_LEFT_X = 781;
+    const YEWTREE_TWO_TOP_Y = 1036;
+    const YEWTREE_TWO_RIGHT_X = 864;
+    const YEWTREE_TWO_BOT_Y = 1006;
+
+    console.log("Choosing where to click Yew 2");
+
+    const YewTree2X = getRandomInt(YEWTREE_TWO_LEFT_X, YEWTREE_TWO_RIGHT_X);
+    const YewTree2Y = getRandomInt(YEWTREE_TWO_TOP_Y, YEWTREE_TWO_BOT_Y);
+
+    console.log("Moving to Yew Tree 2", YewTree2X, YewTree2Y);
+
+        robot.moveMouseSmooth(YewTree2X, YewTree2Y);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(5000);
+}
+
 
 function main(){
     console.log("Starting...");
-    sleep(4000);
-    mouse.moveTo(x, y, delay);
-    mouse.click('left')
-
+    sleep(3000);
+    click_compass();
+    sleep(3000);
+    mousewheelzoomMove();
+    sleep(500);
+    YewTree1();
+    sleep(60000);
+    YewTree2();
+    
+    
 }
 
  /*  mouse.moveTo(x, y, delay);
@@ -170,8 +249,6 @@ function sleep(ms) {
 //🤔 i have no idea what this means🤔
 
 function getRandomInt(min, max) {
-    min = Math.ceil.apply(min);
-    max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;   
         // i think i googled and found this? <==3 <==3 <=3
 
