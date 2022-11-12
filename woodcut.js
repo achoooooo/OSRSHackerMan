@@ -72,7 +72,7 @@ function YewTree1(){
         robot.moveMouseSmooth(YewTree1X, YewTree1Y);
     sleep(500);
     robot.mouseClick('left');
-    sleep(5000);
+    sleep(500);
 
 }
 function YewTree2(){
@@ -91,9 +91,29 @@ function YewTree2(){
         robot.moveMouseSmooth(YewTree2X, YewTree2Y);
     sleep(500);
     robot.mouseClick('left');
-    sleep(5000);
+    sleep(500);
 }
 
+function YewTree1Return(){
+    const YEWTREE_ONE_RETURN_LEFT_X = 886;
+    const YEWTREE_ONE_RETURN_TOP_Y = 268;
+    const YEWTREE_ONE_RETURN_RIGHT_X = 940;
+    const YEWTREE_ONE_RETURN_BOT_Y = 370;
+
+    console.log("Choosing where to click to return to Yew 1");
+
+    const YewTree1ReturnX = getRanmdomInt (YEWTREE_ONE_RETURN_LEFT_X, YEWTREE_ONE_RETURN_RIGHT_X);
+    const YewTree1ReturnY = getRandomInt (YEWTREE_ONE_RETURN_TOP_Y, YEWTREE_ONE_RETURN_BOT_Y);
+
+    console.log("Moving Back to Yew Tree 1", YewTree1ReturnX, YewTree1ReturnY);
+
+        robot.moveMouseSmooth(YewTree1ReturnX, YewTree1ReturnY);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(500);
+
+
+}
 
 function main(){
     console.log("Starting...");
@@ -102,9 +122,13 @@ function main(){
     sleep(3000);
     mousewheelzoomMove();
     sleep(500);
+    click_compass();
     YewTree1();
-    sleep(60000);
+    sleep(50000);
+    click_compass();
     YewTree2();
+    sleep(50000);
+    YewTree1Return();
     
     
 }
