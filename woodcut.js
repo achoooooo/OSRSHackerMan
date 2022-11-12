@@ -14,7 +14,37 @@ var robot = require('robotjs');
 // START EDGEVILLE BANK 💰🚶👌
 // ROBOT MOVES MOUSE TO COMPASS
 
+function sleep(ms) {
+    Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function click_compass(){
+    const COMPASS_LEFT_X = 1625;
+    const COMPASS_TOP_Y = 42;
+    const COMPASS_RIGHT_X = 1666;
+    const COMPASS_BOT_Y = 73;
+
+    console.log("Clicking compass")
+
+    const compassClickX = getRandomInt(COMPASS_LEFT_X, COMPASS_RIGHT_X);
+    const compassClickY = getRandomInt(COMPASS_TOP_Y, COMPASS_BOT_Y);
+
+    console.log("Clicking: ", compassClickX, compassClickY);
+
+     robot.moveMouseSmooth(compassClickX, compassClickY);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(500);
+}
+
+function click_compass2(){
     const COMPASS_LEFT_X = 1625;
     const COMPASS_TOP_Y = 42;
     const COMPASS_RIGHT_X = 1666;
@@ -39,17 +69,17 @@ function Marker1toMarker2(){
     const MARKER1_RIGHT_X = 957;
     const MARKER1_BOT_Y = 839;
 
-    console.log("CHOOSING TO MOVE TO MARKER 1")
+    console.log("CHOOSING WHERE TO MOVE IN TO MARKER 1")
 
     const Marker1ClickX = getRandomInt(MARKER1_LEFT_X, MARKER1_RIGHT_X);
     const Marker1ClickY = getRandomInt(MARKER1_TOP_Y, MARKER1_BOT_Y);
 
     console.log("Moving and clicking Marker 1 to Marker 2");
-    
-    robot.moveMouseSmooth(Marker1ClickX, Marker1ClickY);
+        robot.moveMouseSmooth(Marker1ClickX, Marker1ClickY);
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
+
 }
 function Marker2toGayYew2(){
     const GAY_YEW2_LEFT_X = 728;
@@ -96,6 +126,7 @@ function mousewheelzoomMove(){
     // sleep(500);
     // robot.scrollMouse(-50, 0);
 }
+
 function YewTree1(){
     const YEWTREE_ONE_LEFT_X = 390;
     const YEWTREE_ONE_TOP_Y = 949;
@@ -115,6 +146,7 @@ function YewTree1(){
     sleep(500);
 
 }
+
 function YewTree2(){
     const YEWTREE_TWO_LEFT_X = 781;
     const YEWTREE_TWO_TOP_Y = 1036;
@@ -132,6 +164,7 @@ function YewTree2(){
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
+
 }
 function YewTree1Return(){
     const YEWTREE_ONE_RETURN_LEFT_X = 886;
@@ -153,7 +186,7 @@ function YewTree1Return(){
 
 }
 
-function FindTree(){
+function FindTree1(){
     var x = 390, y = 949, width = 252, height = 48
     var img = robot.screen.capture(x, y, width, height);
 
@@ -190,11 +223,9 @@ function main(){
     Marker1toMarker2();
     sleep(100);
     Marker2toGayYew2();
-    sleep(60000);
-    YewTree2();
-    sleep(60000);
-    YewTree1Return();
-    
+    click_compass2();
+    FindTree1();
+
     
 }
 // 🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺
