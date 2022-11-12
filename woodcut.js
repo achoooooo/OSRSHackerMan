@@ -4,10 +4,6 @@ var robot = require('robotjs');
 
 // (っ◔◡◔)っ ♥ He turned into a Pickle ♥
 
-function main(){
-    console.log("Starting...");
-    sleep(4000);
-   
 //NARRATOR:
 //(Black screen with text; The sound of buzzing bees can be heard)
 //According to all known laws of aviation,
@@ -18,8 +14,23 @@ function main(){
 // START EDGEVILLE BANK 💰🚶👌
 // ROBOT MOVES MOUSE TO COMPASS
 
+function click_compass(){
+    mouse.moveTo(x, y, delay);
+    sleep(4000);
+    mouse.click('left')
+    var img = robot.screencapture(0,0, 1920, 1080);
 
-mouse.moveTo(x, y, delay);
+}
+
+function main(){
+    console.log("Starting...");
+    sleep(4000);
+    mouse.moveTo(x, y, delay);
+    mouse.click('left')
+
+}
+
+ /*  mouse.moveTo(x, y, delay);
 // ROBOT CLICKS COMPASS
 mouse.click('left')
 // ROBOT ROBOT TAKES SCREEN SHOT
@@ -119,20 +130,8 @@ mouse.click('left');
 // MS DELAY
 sleep(4000);
 // PRETTY SURE THE BOT CAN SEE YEW TREE 1 FROM MARKER 1 BUT WE'LL CROSS THAT BRIDGE WHEN WE GET THERE
+*/
 
-
-
-
-function testScreenCapture() {
-    //  taking a screen shot
-    var img = robot.screencapture(0,0, 1920, 1080);
-    // hell yeah
-    var pixel_color = img.colorAt(30, 18)
-    console.log(pixel_color);
-    //💩💩💩 is it taking the pixel color of this 30, 18? cuz this is probs all trash 💩💩💩
-    class 💩💩💩💩
-    }
-}
 
 function findTree() {
     var x = 300 , y = 300, width = 1300 , height = 400
@@ -142,7 +141,7 @@ function findTree() {
     //  these are the willow trees colors that i stole totally aren't also on the ground that is around the tree
     for(var i = 0; i < 1; i++) {
         var random_x = getRandomInt(0 , width-1);
-        var random y = getRandomInt(0, height -1);
+        var random_y = getRandomInt(0, height -1);
         var sample_color = img.colorAt(random_x, random_y);
             // i think this is all for uhhhh x and y RND which is cool and probs will use a lot
 
@@ -161,7 +160,7 @@ function findTree() {
 
     }
 
-    \\ did not find the color in our screenshot
+    // did not find the color in our screenshot
     return false;
 }
 // 🅶🆁🅴🅴🆃🅸🅽🅶🆂 🅼🆈 🅳🆄🅳🅴🆂 🅶🆁🅴🅴🆃🅸🅽🅶🆂 🅼🆈 🅳🆄🅳🅴🆂  🅶🆁🅴🅴🆃🅸🅽🅶🆂 🅼🆈 🅳🆄🅳🅴🆂  🅶🆁🅴🅴🆃🅸🅽🅶🆂 🅼🆈 🅳🆄🅳🅴🆂 
@@ -173,7 +172,7 @@ function sleep(ms) {
 function getRandomInt(min, max) {
     min = Math.ceil.apply(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min;   
+    return Math.floor(Math.random() * (max - min + 1)) + min;   
         // i think i googled and found this? <==3 <==3 <=3
 
 }
