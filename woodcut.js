@@ -32,6 +32,46 @@ function click_compass(){
     robot.mouseClick('left');
     sleep(500);
 }
+
+function Marker1toMarker2(){
+    const MARKER1_LEFT_X = 903;
+    const MARKER1_TOP_Y = 776;
+    const MARKER1_RIGHT_X = 957;
+    const MARKER1_BOT_Y = 839;
+
+    console.log("CHOOSING TO MOVE TO MARKER 1")
+
+    const Marker1ClickX = getRandomInt(MARKER1_LEFT_X, MARKER1_RIGHT_X);
+    const Marker1ClickY = getRandomInt(MARKER1_TOP_Y, MARKER1_BOT_Y);
+
+    console.log("Moving and clicking Marker 1 to Marker 2");
+    
+    robot.moveMouseSmooth(Marker1ClickX, Marker1ClickY);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(500);
+}
+function Marker2toGayYew2(){
+    const GAY_YEW2_LEFT_X = 728;
+    const GAY_YEW2_TOP_Y = 712;
+    const GAY_YEW2_RIGHT_X = 770;
+    const GAY_YEW2_BOT_Y = 765;
+
+    console.log("CHOOSING WHICH GAY PIXEL TO CLICK")
+
+    const MarkerYewGay2X = getRandomInt(GAY_YEW2_LEFT_X, GAY_YEW2_RIGHT_X);
+    const MarkerYewGay2Y = getRandomInt(GAY_YEW2_TOP_Y, GAY_YEW2_BOT_Y);
+
+    console.log("Moving to Gay Yew Tree 2");
+
+    robot.moveMouseSmooth(MarkerYewGay2X, MarkerYewGay2Y);
+    sleep(500);
+    robot.mouseClick('left');
+    sleep(500);
+
+
+}
+
 function mousewheelzoomMove(){
     const MOUSEWHEEL_LEFT_X = 1455;
     const MOUSEWHEEL_TOP_Y = 50;
@@ -69,7 +109,7 @@ function YewTree1(){
 
     console.log("Moving to Yew Tree 1", YewTree1X, YewTree1Y);
 
-        robot.moveMouseSmooth(YewTree1X, YewTree1Y);
+    robot.moveMouseSmooth(YewTree1X, YewTree1Y);
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
@@ -144,10 +184,12 @@ function main(){
     console.log("Starting...");
     sleep(3000);
     click_compass();
-    sleep(3000);
+    sleep(500);
     mousewheelzoomMove();
     sleep(500);
-    YewTree1();
+    Marker1toMarker2();
+    sleep(100);
+    Marker2toGayYew2();
     sleep(60000);
     YewTree2();
     sleep(60000);
