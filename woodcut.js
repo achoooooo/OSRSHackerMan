@@ -231,16 +231,35 @@ function YewTree1Return(){
 
 }
 
+function dumpImgToScreenshot(img) {
+    const d = new Date();
+    const dSuffixItems = [
+        d.getMonth(),
+        d.getDate(),
+        d.getFullYear(),
+        d.getHours(),
+        d.getMinutes(),
+        d.getSeconds()
+    ];
+
+    const dSuffix = dSuffixItems.join('_');
+    const dStr = "india_screengrab_" + dSuffix + ".png";
+
+    new Jimp(
+        { data: img.image, width: img.width, height: img.height },
+        (_e, image) => {
+            image.write(dStr);
+        }
+    );
+}
+
 function FindTree1(){
     var x = 390, y = 949, width = 252, height = 48;
     var img = robot.screen.capture(x, y, width, height);
 
     var tree_colors = ["a28954", "867247", "57612e"];
 
-    const img = img.image;
-    new Jimp({data: img, width, height}, (err, image) => {
-        image.write(fileName);
-    });
+    dumpImgToScreenshot(img);
 
     for (var i = 0; i < 100; i++){
         var random_x = getRandomInt(0, width-1);
