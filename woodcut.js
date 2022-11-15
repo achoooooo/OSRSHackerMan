@@ -1,8 +1,45 @@
 
 // import robotjs library 😊😊😊😊😊😊😊😊😊✅✅✅✅✅✅✅✅✅✅✅
 var robot = require('robotjs');
+var Jimp = require('jimp');
 
-// (っ◔◡◔)っ ♥ He turned into a Pickle ♥
+// "JAVA SCRIPT = BABY LANGUAGE"
+// 👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶
+// 👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶👶
+
+function main(){
+    console.log("Starting...");
+    sleep(3000);
+    click_compass();
+    sleep(500);
+    mousewheelzoomMove();
+    sleep(500);
+    Marker1toMarker2();
+    sleep (8000);
+    Marker2toGayYew2();
+    
+    // infinite loop, use ctrl + c in terminal to stop the program
+
+    while (true) {
+        var tree = FindTree1();
+        // if we can't find a tree write an error message and exit the loop
+        if (tree == false) {
+            console.log ('Could not find a tree');
+            break;
+        }
+    }
+
+    //chop chop down the tree we found
+    robot.moveMouse(tree.x, tree.y);
+    robot.mouseClick('left');
+    click_compass2();
+    FindTree1();
+
+    
+}
+
+
+
 
 //NARRATOR:
 //(Black screen with text; The sound of buzzing bees can be heard)
@@ -38,7 +75,7 @@ function click_compass(){
 
     console.log("Clicking: ", compassClickX, compassClickY);
 
-     robot.moveMouseSmooth(compassClickX, compassClickY);
+    robot.moveMouseSmooth(compassClickX, compassClickY);
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
@@ -57,8 +94,9 @@ function click_compass2(){
 
     console.log("Clicking: ", compassClickX, compassClickY);
 
-     robot.moveMouseSmooth(compassClickX, compassClickY);
+    robot.moveMouseSmooth(compassClickX, compassClickY);
     sleep(500);
+
     robot.mouseClick('left');
     sleep(500);
 }
@@ -75,12 +113,15 @@ function Marker1toMarker2(){
     const Marker1ClickY = getRandomInt(MARKER1_TOP_Y, MARKER1_BOT_Y);
 
     console.log("Moving and clicking Marker 1 to Marker 2");
-        robot.moveMouseSmooth(Marker1ClickX, Marker1ClickY);
+
+    robot.moveMouseSmooth(Marker1ClickX, Marker1ClickY);
     sleep(500);
+
     robot.mouseClick('left');
     sleep(500);
 
 }
+
 function Marker2toGayYew2(){
     const GAY_YEW2_LEFT_X = 728;
     const GAY_YEW2_TOP_Y = 712;
@@ -96,6 +137,7 @@ function Marker2toGayYew2(){
 
     robot.moveMouseSmooth(MarkerYewGay2X, MarkerYewGay2Y);
     sleep(500);
+
     robot.mouseClick('left');
     sleep(500);
 
@@ -115,8 +157,9 @@ function mousewheelzoomMove(){
 
     console.log("Moving mouse to Zooming Out Zone", MouseWheelZoomX, MouseWheelZoomY);
 
-      robot.moveMouseSmooth(MouseWheelZoomX, MouseWheelZoomY);
+    robot.moveMouseSmooth(MouseWheelZoomX, MouseWheelZoomY);
     sleep(500);
+
     // UHHHH NOT WORKING HELP INDIA 
     // robot.scrollMouse(0, 50);
     // sleep(500);
@@ -142,6 +185,7 @@ function YewTree1(){
 
     robot.moveMouseSmooth(YewTree1X, YewTree1Y);
     sleep(500);
+    // 🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺
     robot.mouseClick('left');
     sleep(500);
 
@@ -160,12 +204,13 @@ function YewTree2(){
 
     console.log("Moving to Yew Tree 2", YewTree2X, YewTree2Y);
 
-        robot.moveMouseSmooth(YewTree2X, YewTree2Y);
+    robot.moveMouseSmooth(YewTree2X, YewTree2Y);
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
 
 }
+
 function YewTree1Return(){
     const YEWTREE_ONE_RETURN_LEFT_X = 886;
     const YEWTREE_ONE_RETURN_TOP_Y = 268;
@@ -179,7 +224,7 @@ function YewTree1Return(){
 
     console.log("Moving Back to Yew Tree 1", YewTree1ReturnX, YewTree1ReturnY);
 
-        robot.moveMouseSmooth(YewTree1ReturnX, YewTree1ReturnY);
+    robot.moveMouseSmooth(YewTree1ReturnX, YewTree1ReturnY);
     sleep(500);
     robot.mouseClick('left');
     sleep(500);
@@ -187,15 +232,22 @@ function YewTree1Return(){
 }
 
 function FindTree1(){
-    var x = 390, y = 949, width = 252, height = 48
+    var x = 390, y = 949, width = 252, height = 48;
     var img = robot.screen.capture(x, y, width, height);
 
-    var tree_colors = ["#a28954", "#867247", "#57612e"];
+    var tree_colors = ["a28954", "867247", "57612e"];
 
-    for(var i = 0; i < 100; i++){
+    const img = img.image;
+    new Jimp({data: img, width, height}, (err, image) => {
+        image.write(fileName);
+    });
+
+    for (var i = 0; i < 100; i++){
         var random_x = getRandomInt(0, width-1);
         var random_y = getRandomInt(0, height-1);
         var sample_color = img.colorAt(random_x, random_y);
+        
+        console.log("checking pixel color" , sample_color );
 
         if (tree_colors.includes(sample_color)){
             var screen_x = random_x + x;
@@ -205,29 +257,10 @@ function FindTree1(){
             return {x: screen_x, y: screen_y};
         }
     }
+    // did not find the color in our screenshot
+    return false;
 }
    
-
-
-
-
-
-
-function main(){
-    console.log("Starting...");
-    sleep(3000);
-    click_compass();
-    sleep(500);
-    mousewheelzoomMove();
-    sleep(500);
-    Marker1toMarker2();
-    sleep(100);
-    Marker2toGayYew2();
-    click_compass2();
-    FindTree1();
-
-    
-}
 // 🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺🥺
 main();
 
